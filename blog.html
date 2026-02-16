@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TXTPro博客</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            min-height: 100vh;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #90EE90;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .content {
+            flex: 1;
+            padding: 50px;
+        }
+        .folder {
+            cursor: pointer;
+            padding: 10px;
+            margin: 5px 0;
+            background-color: #7CCD7C;
+            border-radius: 5px;
+        }
+        .folder:hover {
+            background-color: #6BCD6B;
+        }
+        .folder-content {
+            margin-left: 20px;
+            padding: 10px 0;
+        }
+        .file {
+            padding: 5px;
+            margin: 3px 0;
+            cursor: pointer;
+        }
+        .file:hover {
+            background-color: #A0FFA0;
+        }
+        button {
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        function returnIndex() {
+            window.location.href = 'index.html';
+        }
+        function returnIndex() {
+            window.location.href = 'index.html';
+        }
+        function toggleFolder(folderId) {
+            const folder = document.getElementById(folderId);
+            if (folder.style.display === 'none') {
+                folder.style.display = 'block';
+            } else {
+                folder.style.display = 'none';
+            }
+        }
+        function article_HowToSetDeepseekApiKey() {
+            window.location.href = 'articleHowToSetDeepseekApiKey.html';
+        }
+        function data_import() {
+            const gmail = prompt("请输入您的Gmail邮箱地址：");
+            if (gmail) {
+                window.location.href = `mailto:minecraftcaldson@outlook.com?subject=%E6%88%91%E7%9A%84%E6%95%B0%E6%8D%AE%E8%A2%AB%E6%B3%84%E9%9C%B2%E5%88%B0TXTPro%E7%9A%84github%E4%B8%8A&from=${gmail}`;
+            }
+        }
+        function data_share() {
+            const gmail = prompt("请输入您的Gmail邮箱地址：");
+            if (gmail) {
+                window.location.href = `mailto:minecraftcaldson@outlook.com?subject=%E6%88%91%E7%9A%84TXTPro%E6%95%B0%E6%8D%AE%E8%A2%AB%E5%85%B1%E4%BA%AB%E5%88%B0%E4%BA%86github&from=${gmail}`;
+            }
+        }
+        function data_delete() {
+            const gmail = prompt("请输入您的Gmail邮箱地址：");
+            if (gmail) {
+                window.location.href = `mailto:minecraftcaldson@outlook.com?subject=%E6%88%91%E7%9A%84TXTPro%E6%95%B0%E6%8D%AE%E5%9B%A0%E4%B8%BABUG%E5%AF%BC%E8%87%B4%E4%B8%A2%E5%A4%B1&from=${gmail}`;
+            }
+        }
+        function data_public() {
+            const gmail = prompt("请输入您的Gmail邮箱地址：");
+            if (gmail) {
+                window.location.href = `mailto:minecraftcaldson@outlook.com?subject=%E6%88%91%E7%9A%84TXTPro%E6%95%B0%E6%8D%AE%E8%A2%AB%E5%85%AC%E5%BC%80%E4%BA%86&from=${gmail}`;
+            }
+        }
+        function personal_information() {
+            window.location.href = 'articlePersonalInformation.html';
+        }
+        function article_DeepSeekApiKey() {
+            window.location.href = 'articleDeepSeekApiKey.html';
+        }
+    </script>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="folder" onclick="toggleFolder('DeepSeek')">
+            📁 DeepSeek
+        </div>
+        <div id="DeepSeek" class="folder-content">
+            <div class="file" onclick="article_HowToSetDeepseekApiKey()">📄 如何设置Deepseek Api Key</div>
+        </div>
+        <div class="folder" onclick="toggleFolder('Private')">
+            📁 隐私政策
+        </div>
+        <div id="Private" class="folder-content">
+            <div class="file" onclick="personal_information()">📄 个人信息</div>
+            <div class="file" onclick="article_DeepSeekApiKey()">📄 DeepSeek API Key</div>
+            <div class="file" onclick="data_import()">📫 数据存储</div>
+            <div class="file" onclick="data_share()">📫 数据共享</div>
+            <div class="file" onclick="data_delete()">📫 数据删除</div>
+            <div class="file" onclick="data_public()">📫 公开数据</div>
+        </div>
+    </div>
+    <div class="content">
+        <h1>TXTPro博客</h1>
+        <h2>欢迎来到TXTPro博客！这里有着TXTPro的各种使用帮助、隐私政策，还有其他的。</h2>
+        <button onclick="returnIndex()">返回首页</button>
+    </div>
+</body>
+</html>
