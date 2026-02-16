@@ -20,6 +20,9 @@
         function downloadingalert() {
             alert("注意事项：\n1. 确保你的电脑是Windows（建议win10/11）\n2. 确保用管理员权限打开安装程序\n3. 安装完安装程序可能会出现“通常不会信任TXTProSetup3.1.0”的提示，不用理会，保留即可。")
         }
+        function blogPage() {
+            window.location.href = 'blog.html';
+        }
     </script>
 </head>
 <body>
@@ -28,5 +31,5 @@
     <button onclick="downloadingalert()">注意事项</button>
     <button onclick="downloadFile3_1_0()">下载TXTPro最新版</button>
     <button onclick="downloadFilePage()">更多下载</button>
-    <button onclick="window.location.href = 'articleHowToSetDeepseekApiKey.html'">如何设置Deepseek API Key</button>
+    <button onclick="blogPage()">TXTPro博客</button>
 </body>

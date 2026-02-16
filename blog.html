@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TXTPro博客</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            min-height: 100vh;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #90EE90;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .content {
+            flex: 1;
+            padding: 50px;
+        }
+        .folder {
+            cursor: pointer;
+            padding: 10px;
+            margin: 5px 0;
+            background-color: #7CCD7C;
+            border-radius: 5px;
+        }
+        .folder:hover {
+            background-color: #6BCD6B;
+        }
+        .folder-content {
+            margin-left: 20px;
+            padding: 10px 0;
+        }
+        .file {
+            padding: 5px;
+            margin: 3px 0;
+            cursor: pointer;
+        }
+        .file:hover {
+            background-color: #A0FFA0;
+        }
+    </style>
+    <script>
+        function returnIndex() {
+            window.location.href = 'index.html';
+        }
+        function returnIndex() {
+            window.location.href = 'index.html';
+        }
+        function toggleFolder(folderId) {
+            const folder = document.getElementById(folderId);
+            if (folder.style.display === 'none') {
+                folder.style.display = 'block';
+            } else {
+                folder.style.display = 'none';
+            }
+        }
+        function article_HowToSetDeepseekApiKey() {
+            window.location.href = 'articleHowToSetDeepseekApiKey.html';
+        }
+    </script>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="folder_DeepSeek" onclick="toggleFolder('DeepSeek')">
+            📁 DeepSeek
+        </div>
+        <div id="DeepSeek" class="folder-content">
+            <div class="file" onclick="article_HowToSetDeepseekApiKey()">📄 如何设置Deepseek Api Key</div>
+        </div>
+    </div>
+    <div class="content">
+        <h1>TXTPro博客</h1>
+        <h2>TXTPro的一些维基百科、技术文章、使用技巧等。</h2>
+        <button onclick="returnIndex()">返回首页</button>
+    </div>
+</body>
+</html>
