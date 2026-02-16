@@ -9,16 +9,28 @@
             font-family: Arial, sans-serif;
             padding: 50px;
         }
+        button {
+            cursor: pointer;
+        }
     </style>
     <script>
         function hasHelp() {
-            window.location.href = 'mailto:minecraftcaldson@outlook.com?subject=%E5%AF%B9https%3A//caldson.github.io/txtpro%E4%B8%AD%E7%9A%84%E6%96%87%E7%AB%A0%E2%80%9D%E5%A6%82%E4%BD%95%E8%AE%BE%E7%BD%AEDeepSeek%20Api%20Key%E2%80%9C%E6%9C%89%E5%B8%AE%E5%8A%A9&from=minecraftcaldson@outlook.com';
+            const gmail = prompt("请输入您的Gmail邮箱地址：");
+            if (gmail) {
+                window.location.href = `mailto:minecraftcaldson@outlook.com?subject=%E5%AF%B9https%3A//caldson.github.io/txtpro%E4%B8%AD%E7%9A%84%E6%96%87%E7%AB%A0%E2%80%9D%E5%A6%82%E4%BD%95%E8%AE%BE%E7%BD%AEDeepSeek%20Api%20Key%E2%80%9C%E6%9C%89%E5%B8%AE%E5%8A%A9&from=${gmail}`;
+            }
         }
         function noHelp() {
-            window.location.href = 'mailto:minecraftcaldson@outlook.com?subject=%E5%AF%B9https%3A//caldson.github.io/txtpro%E4%B8%AD%E7%9A%84%E6%96%87%E7%AB%A0%E2%80%9D%E5%A6%82%E4%BD%95%E8%AE%BE%E7%BD%AEDeepSeek%20Api%20Key%E2%80%9C%E6%B2%A1%E6%9C%89%E5%B8%AE%E5%8A%A9&from=minecraftcaldson@outlook.com';
+            const gmail = prompt("请输入您的Gmail邮箱地址：");
+            if (gmail) {
+                window.location.href = `mailto:minecraftcaldson@outlook.com?subject=%E5%AF%B9https%3A//caldson.github.io/txtpro%E4%B8%AD%E7%9A%84%E6%96%87%E7%AB%A0%E2%80%9D%E5%A6%82%E4%BD%95%E8%AE%BE%E7%BD%AEDeepSeek%20Api%20Key%E2%80%9C%E6%B2%A1%E6%9C%89%E5%B8%AE%E5%8A%A9&from=${gmail}`;
+            }
         }
         function report() {
-            window.location.href = 'mailto:minecraftcaldson@outlook.com?subject=%E6%8A%95%E8%AF%89https%3A//caldson.github.io/txtpro%E4%B8%AD%E7%9A%84%E6%96%87%E7%AB%A0%E2%80%9D%E5%A6%82%E4%BD%95%E8%AE%BE%E7%BD%AEDeepSeek%20Api%20Key%E2%80%9C&from=minecraftcaldson@outlook.com';
+            const gmail = prompt("请输入您的Gmail邮箱地址：");
+            if (gmail) {
+                window.location.href = `mailto:minecraftcaldson@outlook.com?subject=%E6%8A%95%E8%AF%89https%3A//caldson.github.io/txtpro%E4%B8%AD%E7%9A%84%E6%96%87%E7%AB%A0%E2%80%9D%E5%A6%82%E4%BD%95%E8%AE%BE%E7%BD%AEDeepSeek%20Api%20Key%E2%80%9C&from=${gmail}`;
+            }
         }
     </script>
 </head>

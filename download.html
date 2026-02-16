@@ -9,22 +9,37 @@
             font-family: Arial, sans-serif;
             padding: 50px;
         }
+        .delete {
+            color: red;
+        }
     </style>
     <script>
         function backHomePage() {
             window.location.href = 'index.html';
         }
         function downloadingalert() {
-            alert("注意事项：\n1. 确保你的电脑是Windows（建议win10/11）\n2. 确保用管理员权限打开安装程序\n3. 安装完安装程序可能会出现“通常不会信任TXTProSetupX.X.X”的提示，不用理会，保留即可。")
+            alert("注意事项：\n1. 确保你的电脑是Windows（建议win10/11）\n2. 确保用管理员权限打开安装程序\n3. 安装完安装程序可能会出现“通常不会信任TXTProSetupX.X.X”的提示，不用理会，保留即可。");
+        }
+        function downloadNoticeandAlert() {
+            document.getElementById('notification').style.display = 'block';
+            downloadingalert();
+            document.getElementById('downloadNotice').innerText = '注意事项';
+            document.getElementById('downloadNotice').onclick = closeNotification;
         }
         function closeNotification() {
             document.getElementById('notification').style.display = 'none';
+            document.getElementById('downloadNotice').innerText = '注意事项和下载公告';
+            document.getElementById('downloadNotice').onclick = downloadNoticeandAlert;
         }
         function downloadFile0_1_0() {
-            window.location.href = 'TXTProSetup0.1.0.exe';
+            if (confirm("这个文件过于旧，于2026年1月1日发布，并且明天将停止提供，是否下载？") === true) {
+                window.location.href = 'TXTProSetup0.1.0.exe';
+            }
         }
         function downloadFile0_1_1() {
-            window.location.href = 'TXTProSetup0.1.1.exe';
+            if (confirm("这个文件过于旧，于2026年1月1日发布，并且后天将停止提供，是否下载？") === true) {
+                window.location.href = 'TXTProSetup0.1.1.exe';
+            }
         }
         function downloadFile0_2_0() {
             window.location.href = 'TXTProSetup0.2.0.exe';
@@ -58,10 +73,10 @@
 <body>
     <h1>下载TXTPro</h1>
     <h2>请选择版本</h2>
-    <button onclick="downloadingalert()">注意事项</button>
+    <button onclick="downloadingalert()" id="downloadNotice">注意事项</button>
     <button onclick="downloadFile3_1_0()">下载TXTPro最新版（3.1.0）</button>
-    <button onclick="downloadFile0_1_0()">下载TXTPro0.1.0</button>
-    <button onclick="downloadFile0_1_1()">下载TXTPro0.1.1</button>
+    <button onclick="downloadFile0_1_0()" class='delete'>下载TXTPro0.1.0</button>
+    <button onclick="downloadFile0_1_1()" class='delete'>下载TXTPro0.1.1</button>
     <button onclick="downloadFile0_2_0()">下载TXTPro0.2.0</button>
     <button onclick="downloadFile0_3_0()">下载TXTPro0.3.0</button>
     <button onclick="downloadFile0_4_0()">下载TXTPro0.4.0</button>
@@ -73,7 +88,7 @@
     <button onclick="backHomePage()">返回首页</button>
     <div id="notification" style="background-color: yellow; padding: 10px; position: fixed; bottom: 0; left: 0; right: 0; display: flex; align-items: center; z-index: 1000;">
         <span onclick="closeNotification()" style="cursor: pointer; font-weight: bold; margin-right: 10px;">×</span>
-        <span>为保证下载质量，建议您下载2.1.0或者更高版本。TXTPro 0.1.0在2026年2月17日将停止提供。</span>
+        <span>为保证下载质量，建议您下载2.1.0或者更高版本。TXTPro 0.1.0将在明天停止提供，TXTPro 0.1.1将在后天停止提供。</span>
     </div>
 </body>
 </html>

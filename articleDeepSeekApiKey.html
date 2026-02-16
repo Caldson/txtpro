@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TXTPro博客 - DeepSeek API Key</title>
+    <style>
+        button {
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        function returnIndex() {
+            window.location.href = 'blog.html';
+        }
+        function data_public() {
+            const gmail = prompt("请输入您的Gmail邮箱地址：");
+            if (gmail) {
+                window.location.href = `mailto:minecraftcaldson@outlook.com?subject=%E6%88%91%E7%9A%84TXTPro%E6%95%B0%E6%8D%AE%E8%A2%AB%E5%85%AC%E5%BC%80%E4%BA%86&from=${gmail}`;
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Deepseek API Key</h1>
+    <label>我们不会存储您的API Key，也不会将其分享给任何第三方。</label>
+    <button onclick="data_public()">我的API Key被意外泄露了</button>
+    <button onclick="returnIndex()">返回首页</button>
+</body>
+</html>
