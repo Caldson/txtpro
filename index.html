@@ -8,27 +8,148 @@
         body {
             font-family: Arial, sans-serif;
             padding: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background: linear-gradient(45deg, #ffffff 0%, #d4ff76 100%);
+            overflow: hidden;
+            position: relative;
+        }
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1
+        }
+        .glass-container {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            padding: 40px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .glass-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.45);
+        }
+        h1 {
+            color: rgb(91, 153, 33);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+        }
+        h2 {
+            color: rgba(68, 143, 31, 0.8);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            font-size: 18px;
         }
         button {
+            padding: 12px 24px;
+            border-radius: 360px;
+            margin: 10px;
             cursor: pointer;
+            border: none;
+            background: rgba(255, 255, 255, 0.3);
+            color: rgb(58, 118, 41);
+            font-weight: bold;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        button:hover {
+            background: rgba(255, 255, 255, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+        button:active {
+            transform: translateY(0);
+        }
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgb(255, 255, 0);
+            color: #000;
+            display: flex;
+            align-items: center;
+            padding: 15px 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            animation: slideUp 0.5s ease-out;
+        }
+        .notification div:first-child {
+            margin-right: 15px;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        @keyframes slideUp {
+            from {
+                transform: translate(-50%, 100%);
+                opacity: 0;
+            }
+            to {
+                transform: translate(-50%, 0);
+                opacity: 1;
+            }
+        }
+        @keyframes slideDown {
+            from {
+                transform: translate(-50%, 0);
+                opacity: 1;
+            }
+            to {
+                transform: translate(-50%, 100%);
+                opacity: 0;
+            }
+        }
+        .notification.slide-down {
+            animation: slideDown 0.5s ease-out;
         }
     </style>
     <script>
         function downloadFile() {
-            window.location.href = 'TXTProSetup.exe';
+            if (confirm("确定下载TXTPro最新版吗？过几天将会发布到Microsoft Store。Microsoft Store里的APP非常安全，不会意外的出现病毒。")) {
+                window.location.href = 'TXTProSetup.exe';
+            }
         }
         function downloadingalert() {
             alert("注意事项：\n1. 确保你的电脑是Windows（建议win10/11）\n2. 确保用管理员权限打开安装程序\n3. 安装完安装程序可能会出现“通常不会信任TXTProSetup3.1.0”的提示，不用理会，保留即可。")
         }
-        function blogPage() {
-            window.location.href = 'blog.html';
+        function closeNotification() {
+            var notification = document.getElementById('notification');
+            notification.classList.add('slide-down');
+            setTimeout(function() {
+                notification.style.display = 'none';
+                notification.classList.remove('slide-down');
+            }, 250);
+        }
+        window.onload = function() {
+            document.getElementById('notification').style.display = 'flex';
         }
     </script>
 </head>
 <body>
-    <h1>TXTPro</h1>
-    <h2>更好的文本处理工具，中国首个使用AI的文本编辑器。</h2>
-    <button onclick="downloadingalert()">注意事项</button>
-    <button onclick="downloadFile3_1_0()">下载TXTPro最新版</button>
-    <button onclick="blogPage()">TXTPro博客</button>
+    <div class="glass-container">
+        <h1>TXTPro</h1>
+        <h2>更好的文本处理工具，中国首个使用AI的文本编辑器。</h2>
+        <button onclick="downloadingalert()">注意事项</button>
+        <button onclick="downloadFile()">下载TXTPro最新版</button>
+    </div>
+    <div id="notification" class="notification" style="display: none;">
+        <div onclick="closeNotification()">×</div>
+        <div>过几天我们TXTPro将免费上架Microsoft Store。</div>
+    </div>
 </body>
